@@ -26,12 +26,38 @@ const ProfileSchema = new mongoose.Schema({
   bio: {
     type: String,
   },
-  starterpokemon: {
+  githubusername: {
     type: String,
   },
-  badges: {
-    type: String,
-  },
+  experience: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      company: {
+        type: String,
+        required: true,
+      },
+      location: {
+        type: String,
+      },
+      from: {
+        type: Date,
+        required: true,
+      },
+      to: {
+        type: Date,
+      },
+      current: {
+        type: Boolean,
+        default: false,
+      },
+      description: {
+        type: String,
+      },
+    },
+  ],
   education: [
     {
       school: {
@@ -62,23 +88,20 @@ const ProfileSchema = new mongoose.Schema({
       },
     },
   ],
-  team: {
-    slot1: {
+  social: {
+    youtube: {
       type: String,
     },
-    slot2: {
+    twitter: {
       type: String,
     },
-    slot3: {
+    facebook: {
       type: String,
     },
-    slot4: {
+    linkedin: {
       type: String,
     },
-    slot5: {
-      type: String,
-    },
-    slot6: {
+    instagram: {
       type: String,
     },
   },
