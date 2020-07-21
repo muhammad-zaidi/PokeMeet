@@ -1,10 +1,13 @@
-//Creating Profile Model
 const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
+  },
+  status: {
+    type: String,
+    required: true,
   },
   company: {
     type: String,
@@ -14,10 +17,6 @@ const ProfileSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-  },
-  status: {
-    type: String,
-    required: true,
   },
   skills: {
     type: [String],
