@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://muhammad1:muhammad1@pokemeetdb.9nmgc.mongodb.net/PokeMeetDB?retryWrites=true&w=majority",
-  "jwtSecret": "secrettoken",
-  "githubClientId": "b36a8ddaab62e1f6d5d9",
-  "githubSecret": "509a71073741c19a0d35da46eb5ff50250212043"
-}
