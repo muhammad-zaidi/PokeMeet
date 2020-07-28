@@ -7,9 +7,9 @@ const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 const Post = require('../../models/Post');
 
-//@route    GET api/posts
-//@desc     Create a post
-//@access   Private
+// @route    POST api/posts
+// @desc     Create a post
+// @access   Private
 router.post(
   '/',
   [auth, [check('text', 'Text is required').not().isEmpty()]],
@@ -20,9 +20,7 @@ router.post(
     }
 
     try {
-      const user = await (await User.findById(req.user.id)).isSelected(
-        '-password'
-      );
+      const user = await User.findById(req.user.id).select('-password');
 
       const newPost = new Post({
         text: req.body.text,
@@ -32,6 +30,7 @@ router.post(
       });
 
       const post = await newPost.save();
+
       res.json(post);
     } catch (err) {
       console.error(err.message);
