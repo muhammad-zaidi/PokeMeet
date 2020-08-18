@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 export const Register = (props) => {
@@ -21,7 +22,7 @@ export const Register = (props) => {
     if (password !== password2) {
       props.setAlert('Passwords do not match', 'danger');
     } else {
-      props.setAlert('Success');
+      props.register({ name, email, password });
     }
   };
   return (
@@ -38,7 +39,6 @@ export const Register = (props) => {
             name='name'
             value={name}
             onChange={(e) => onChange(e)}
-            required
           />
         </div>
         <div className='form-group'>
@@ -48,7 +48,6 @@ export const Register = (props) => {
             name='email'
             value={email}
             onChange={(e) => onChange(e)}
-            required
           />
           <small className='form-text'>
             This site uses Gravatar so if you want a profile image, use a
@@ -62,7 +61,6 @@ export const Register = (props) => {
             name='password'
             value={password}
             onChange={(e) => onChange(e)}
-            minLength='6'
           />
         </div>
         <div className='form-group'>
@@ -72,7 +70,6 @@ export const Register = (props) => {
             name='password2'
             value={password2}
             onChange={(e) => onChange(e)}
-            minLength='6'
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Register' />
@@ -86,6 +83,7 @@ export const Register = (props) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
