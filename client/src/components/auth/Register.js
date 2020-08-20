@@ -80,7 +80,6 @@ export const Register = (props) => {
     </Fragment>
   );
 };
-
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
